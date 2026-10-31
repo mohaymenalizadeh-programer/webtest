@@ -1,0 +1,140 @@
+.special-cat-wrapper {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 40px 20px;
+    direction: rtl;
+    box-sizing: border-box;
+  }
+  
+  .special-cat-header {
+    text-align: center;
+    margin-bottom: 35px;
+  }
+  
+  .special-cat-header h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1c1c1c;
+    margin: 0;
+  }
+  
+  .special-cat-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+  
+  .special-cat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .special-cat-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .special-cat-img-box {
+    width: 133px;
+    height: 135px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+  
+  .special-cat-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .special-cat-card:hover .special-cat-img-box img {
+    transform: scale(1.08);
+  }
+  
+  .special-cat-info {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .special-cat-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #2b2b2b;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  
+  .pulse-dot-container {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #d4af37;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+  }
+  
+  .pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    animation: pulseFrequency 1.8s infinite ease-out;
+    opacity: 0;
+    z-index: 1;
+  }
+  
+  @keyframes pulseFrequency {
+    0% {
+      transform: scale(0.3);
+      opacity: 0.9;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .special-cat-grid {
+      gap: 20px;
+    }
+  
+    .special-cat-img-box {
+        width: 133px;
+        height: 130px;
+    }
+  
+    .special-cat-title {
+      font-size: 12px;
+    }
+  }

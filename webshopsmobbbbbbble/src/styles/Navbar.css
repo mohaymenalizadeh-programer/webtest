@@ -1,0 +1,285 @@
+:root {
+  --nav-h: 72px;
+  --green: #1f2b25;
+  --green-deep: #18211c;
+  --gold: #d9b886;
+  --gold-btn: #dfb983;
+  --cream: #f3ece0;
+}
+
+body {
+  margin: 0;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: var(--nav-h);
+  background: var(--green);
+  border-radius: 0 0 38px 38px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  font-family: 'Vazirmatn', 'Vazir', Tahoma, sans-serif;
+}
+
+.navbar-inner {
+  height: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 44px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.navbar-logo {
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.navbar-logo svg {
+  width: 36px;
+  height: 36px;
+  color: var(--gold);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-self: center;
+}
+
+.navbar-links a {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--gold);
+}
+
+.navbar-links a.active {
+  border-bottom-color: var(--gold);
+}
+
+.navbar-actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-login {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--cream);
+  font-family: inherit;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.navbar-login:hover {
+  color: var(--gold);
+}
+
+.navbar-icon-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  color: var(--cream);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.navbar-icon-btn:hover {
+  color: var(--gold);
+}
+
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--cream);
+  cursor: pointer;
+}
+
+.navbar-backdrop,
+.drawer {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .navbar-inner {
+    padding: 0 24px;
+  }
+
+  .navbar-links {
+    gap: 20px;
+  }
+
+  .navbar-links a {
+    font-size: 13px;
+  }
+
+  .navbar-logo {
+    font-size: 28px;
+  }
+
+  .navbar-logo svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-h: 64px;
+  }
+
+  .navbar {
+    border-radius: 0 0 28px 28px;
+  }
+
+  .navbar-inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 18px;
+  }
+
+  .navbar-logo {
+    justify-self: unset;
+  }
+
+  .navbar-actions {
+    justify-self: unset;
+  }
+
+  .navbar-links,
+  .navbar-actions .navbar-icon-btn {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-actions {
+    gap: 14px;
+  }
+
+  .navbar-login {
+    font-size: 13px;
+  }
+
+  .navbar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 290;
+  }
+
+  .navbar-backdrop.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .drawer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    height: 100dvh;
+    width: min(300px, 82vw);
+    box-sizing: border-box;
+    padding: 24px 28px;
+    background: var(--green);
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+    z-index: 300;
+    border-radius: 28px 0 0 28px;
+  }
+
+  .drawer.open {
+    transform: translateX(0);
+  }
+
+  .drawer-close {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--cream);
+    cursor: pointer;
+  }
+
+  .drawer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0 24px;
+    color: var(--cream);
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .drawer-logo svg {
+    width: 30px;
+    height: 30px;
+    color: var(--gold);
+  }
+
+  .drawer-links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .drawer-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(243, 236, 224, 0.1);
+  }
+
+  .drawer-links a.active {
+    color: var(--gold);
+  }
+
+  .drawer-icons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 28px;
+  }
+
+  .drawer-icons .navbar-icon-btn {
+    display: flex;
+  }
+}

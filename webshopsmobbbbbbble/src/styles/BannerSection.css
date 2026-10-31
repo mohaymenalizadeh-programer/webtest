@@ -1,0 +1,184 @@
+/* src/styles/BannerSection.css */
+
+.banner-section-outer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  direction: rtl;
+  box-sizing: border-box;
+}
+
+.banner-section-container {
+  width: 100%;
+  display: flex;
+  gap: 25px;
+}
+
+/* شرط ابعاد ۱۷۰۰ پیکسل به بالا: وسط‌چین و محدود کردن عرض */
+@media (min-width: 1700px) {
+  .banner-section-container {
+    max-width: 1650px;
+    margin: 0 auto;
+  }
+}
+
+.banner-card {
+  flex: 1;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  min-height: 500px;
+  transition: all 0.3s ease;
+}
+
+/* بنر حاوی متن (پس‌زمینه کامل) */
+.banner-right-bg {
+  background-image: url('./images/aHFfu.webp');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 50px;
+}
+
+/* لایه تاریک روی تصویر */
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(15, 20, 17, 0.85) 0%, rgba(20, 28, 23, 0.6) 100%);
+  z-index: 1;
+}
+
+.banner-content {
+  max-width: 450px;
+  z-index: 2;
+  position: relative;
+}
+
+.banner-title {
+  font-size: 36px;
+  font-weight: 900;
+  color: #f6f0ea;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.banner-description {
+  font-size: 16px;
+  color: #d1d9d4;
+  line-height: 1.9;
+  margin-bottom: 35px;
+}
+
+.banner-btn {
+  background-color: #d1b17a;
+  color: #1a231e;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 35px;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.banner-btn:hover {
+  background-color: #c4a165;
+  transform: translateY(-2px);
+}
+
+/* بنر تصویر تکی */
+.banner-left-img-box {
+  display: flex;
+}
+
+.banner-left-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* ------------------------------------------------ */
+/*  تنظیمات ریسپانسیو و چسبیدن کامل بنرها در موبایل  */
+/* ------------------------------------------------ */
+
+@media (max-width: 1024px) {
+  .banner-card {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 900px) {
+  .banner-section-outer {
+    padding: 10px; /* کاهش پدینگ بیرونی */
+  }
+
+  .banner-section-container {
+    flex-direction: column;
+    gap: 0; /* حذف فاصله بین دو بنر برای چسبیدن کامل */
+  }
+
+  .banner-card {
+    width: 100%;
+    min-height: 340px;
+    border-radius: 0; /* صفر کردن لبه‌ها برای یکپارچه‌سازی */
+  }
+
+  /* تنظیم لبه گرد فقط برای بالای بنر اول */
+  .banner-section-container .banner-card:first-child {
+    border-radius: 20px 20px 0 0;
+  }
+
+  /* تنظیم لبه گرد فقط برای پایین بنر دوم */
+  .banner-section-container .banner-card:last-child {
+    border-radius: 0 0 20px 20px;
+  }
+
+  .banner-left-img {
+    border-radius: 0; /* همسان‌سازی لبه‌های تصویر */
+  }
+
+  .banner-right-bg {
+    padding: 35px 24px;
+  }
+
+  .banner-title {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+
+  .banner-description {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .banner-btn {
+    padding: 12px 26px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-card {
+    min-height: 280px;
+  }
+
+  .banner-title {
+    font-size: 22px;
+  }
+
+  .banner-right-bg {
+    padding: 25px 18px;
+  }
+}
